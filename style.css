@@ -1,0 +1,34 @@
+.container
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    
+    background-color: white;
+    width: 25%;
+    height: auto;
+  
+    padding: 100px;
+    border-radius: 20px;
+}
+.container h1
+{
+    color: black;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+body
+{
+    background-color: #f8cdda;
+    background-image: linear-gradient(to right, #1e2698, hsl(262, 52%, 35%));
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list
+{
+}
