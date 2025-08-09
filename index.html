@@ -10,16 +10,20 @@
 <body>
     <div class="container">
         <h1>to-do list📝</h1>
+        
         <form>
             <input type="text" id="item">
-            <input type="button" value="Add item" onclick="addItem()">
-          
+            
+            <input type="button" value="Add item" onclick="addItem()" class="add-btn">
+
             <div id="list" class="list"></div>
 
 
             </div>
         </form>
     </div>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
     <script src="index.js" ></script>
     
 </body>

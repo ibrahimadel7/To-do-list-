@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 5%;
+    justify-content: center;
     
     background-color: white;
     width: 25%;
@@ -17,6 +18,7 @@
     color: black;
     font-size: 2.5rem;
     margin-bottom: 25px;
+
 }
 body
 {
@@ -29,10 +31,67 @@ body
     justify-content: center;
     align-items: center;
 }
-.list
-{
-}
+
 .checked {
         text-decoration: line-through;
         color: gray;
+}
+.list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+.list li input[type="checkbox"] {
+    appearance: none;
+  -webkit-appearance: none; /* Safari/Chrome */
+  -moz-appearance: none; /* Firefox */
+    margin-right: 10px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}.list li input[type="checkbox"]:hover {
+    appearance: none;
+  -webkit-appearance: none; /* Safari/Chrome */
+  -moz-appearance: none; /* Firefox */
+    margin-right: 10px;
+    border: 3px solid #4CAF50;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+.remove-btn {
+  all: unset !important;       /* Remove all default styles */
+  cursor: pointer !important;  /* Pointer cursor */
+  background: none !important; /* No background */
+  color: #7b7878 !important;   /* Red text color */
+    font-weight: bold !important; /* Bold text */
+  font-size: 25px !important;  /* Size of "x" */
+
+  padding: 5px 5px !important;   /* Small horizontal padding */
+  margin: 0 5px !important;   /* Small horizontal margin */
+}
+
+.remove-btn:hover {
+  color: #982121 !important;   /* Darker red on hover */
+}
+.add-btn {
+   
+ 
+
+  background: #4CAF50 ; /* Green background */
+
+  color: rgb(253, 248, 248);     /* White text color */
+  font-weight: bold; /* Bold text */
+  font-size: 13px;  /* Font size */
+  padding: 5px  ; /* Padding */
+  border: none;
+  border-radius: 5px ; /* Rounded corners */
+}
+
+.add-btn:hover {
+  background: #45a049; /* Darker green on hover */
 }

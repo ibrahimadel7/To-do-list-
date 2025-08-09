@@ -1,54 +1,51 @@
-    const textEl = document.getElementById("item");
-    const listEl = document.getElementById("list");
-    let items=[]
-  
+const textEl = document.getElementById("item");
+const listEl = document.getElementById("list");
+let items = [];
 
-    function addItem() 
-    {
-        let item = textEl.value.trim();
-     
+function addItem() {
+  let item = textEl.value.trim();
+  if (item === "") return;
 
-        
-        if (item ==="") return; 
+  items.push({ text: item, checked: false });
+  renderItems();
 
+  textEl.value = "";
+}
 
-        items.push(item);
-        renderItems();
-        
-  
+function renderItems() {
+  listEl.innerHTML = `<ul>`; // start ul once
 
-        textEl.value = "";
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    listEl.innerHTML += `
+      <li>
+        <input type="checkbox" onchange="toggleChecked(this, ${i})" ${item.checked ? "checked" : ""}>
+        <label class="${item.checked ? "checked" : ""}">${item.text}</label>
+        <button onclick="removeItem(${i})" class="remove-btn">x</button>
+      </li>
+    `;
+  }
 
-    }
+  listEl.innerHTML += `</ul>`; // close ul once
+}
 
-    function renderItems()
-    {
-        listEl.innerHTML = "";
-        for(let i=0;i<items.length;i++)
-        {
-            listEl.innerHTML += `
-            <div>
-                <ul>
-                <li>
-                <input type="checkbox" onchange="toggleChecked(this)">
-                <label>${items[i]}</label>
-                <button onclick="removeItem(${i})" onchange="toggleChecked(this)">x</button>
-                </li>
-                </ul>
-            </div>
-        `;
-        }
-    }
-    function removeItem(index)
-    {
-        items.splice(index, 1); // remove 1 element at 'index'
-        renderItems(); // refresh list
-    }
-    function toggleChecked(checkbox) {
-    const label = checkbox.nextElementSibling; // label is right after the checkbox
-    if (checkbox.checked) {
-        label.classList.add("checked");
-    } else {
-        label.classList.remove("checked");
-    }
+function removeItem(index) {
+  items.splice(index, 1);
+  renderItems();
+}
+
+function toggleChecked(checkbox, index) {
+  const label = checkbox.nextElementSibling;
+  items[index].checked = checkbox.checked; // update state
+
+  if (checkbox.checked) {
+    label.classList.add("checked");
+    confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 },
+    });
+  } else {
+    label.classList.remove("checked");
+  }
 }
