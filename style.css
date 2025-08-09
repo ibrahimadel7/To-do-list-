@@ -42,6 +42,20 @@ body
     margin-bottom: 10px;
     list-style-type: none;
 }
+.container input[type="text"] {
+  border-radius: 10px; 
+  padding: 8px; 
+  width: 250px;
+  border: 1px solid #ccc; 
+  margin-right: 0;
+}
+.list
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .list li input[type="checkbox"] {
     appearance: none;
   -webkit-appearance: none; /* Safari/Chrome */
@@ -64,34 +78,35 @@ body
     position: relative;
 }
 .remove-btn {
-  all: unset !important;       /* Remove all default styles */
-  cursor: pointer !important;  /* Pointer cursor */
-  background: none !important; /* No background */
-  color: #7b7878 !important;   /* Red text color */
-    font-weight: bold !important; /* Bold text */
-  font-size: 25px !important;  /* Size of "x" */
+  all: unset !important;       
+  cursor: pointer !important;  
+  background: none !important; 
+  color: #7b7878 !important;   
+    font-weight: bold !important; 
+  font-size: 25px !important;  
 
-  padding: 5px 5px !important;   /* Small horizontal padding */
-  margin: 0 5px !important;   /* Small horizontal margin */
+  padding: 5px 5px !important;
+  margin: 0 5px !important;
 }
 
 .remove-btn:hover {
-  color: #982121 !important;   /* Darker red on hover */
+  color: #982121 !important;  
 }
 .add-btn {
    
  
 
-  background: #4CAF50 ; /* Green background */
+  background: #4CAF50 ; 
 
-  color: rgb(253, 248, 248);     /* White text color */
-  font-weight: bold; /* Bold text */
-  font-size: 13px;  /* Font size */
-  padding: 5px  ; /* Padding */
+  color: rgb(253, 248, 248);     
+  font-weight: bold; 
+  font-size: 13px;
   border: none;
-  border-radius: 5px ; /* Rounded corners */
+  padding: 9px 20px;
+  border-radius: 10px; 
+  margin-left: 0;
 }
 
 .add-btn:hover {
-  background: #45a049; /* Darker green on hover */
+  background: #53c358; 
 }
