@@ -1,5 +1,7 @@
 const textEl = document.getElementById("item");
 const listEl = document.getElementById("list");
+const form = document.getElementById("todoForm");
+
 let items = [];
 
 function addItem() {
@@ -11,6 +13,12 @@ function addItem() {
 
   textEl.value = "";
 }
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();  // Prevent page refresh
+  addItem();
+});
+
 
 function renderItems() {
   listEl.innerHTML = `<ul>`; // start ul once
