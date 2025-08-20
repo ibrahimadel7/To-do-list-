@@ -1,6 +1,3 @@
-Sure! Here’s a simple, short README for your checklist app:
-
----
 
 # Checklist App
 
