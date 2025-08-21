@@ -1,25 +1,42 @@
+
 const textEl = document.getElementById("item");
 const listEl = document.getElementById("list");
 const form = document.getElementById("todoForm");
 
 let items = [];
 
+// --- Save to localStorage ---
+function storeLocal(arr) {
+  localStorage.setItem("myitems", JSON.stringify(arr));
+}
+
+// --- Load from localStorage on startup ---
+function loadLocal() {
+  const stored = localStorage.getItem("myitems");
+  if (stored) {
+    items = JSON.parse(stored);
+  }
+}
+
+// Add new item
 function addItem() {
   let item = textEl.value.trim();
   if (item === "") return;
 
   items.push({ text: item, checked: false });
+  storeLocal(items);
   renderItems();
 
   textEl.value = "";
 }
 
+// Form submit
 form.addEventListener("submit", function(e) {
-  e.preventDefault();  // Prevent page refresh
+  e.preventDefault();
   addItem();
 });
 
-
+// Render items
 function renderItems() {
   listEl.innerHTML = `<ul>`; // start ul once
 
@@ -37,14 +54,17 @@ function renderItems() {
   listEl.innerHTML += `</ul>`; // close ul once
 }
 
+// Remove item
 function removeItem(index) {
   items.splice(index, 1);
+  storeLocal(items);
   renderItems();
 }
 
+// Toggle check/uncheck
 function toggleChecked(checkbox, index) {
   const label = checkbox.nextElementSibling;
-  items[index].checked = checkbox.checked; // update state
+  items[index].checked = checkbox.checked;
 
   if (checkbox.checked) {
     label.classList.add("checked");
@@ -56,4 +76,11 @@ function toggleChecked(checkbox, index) {
   } else {
     label.classList.remove("checked");
   }
+
+  storeLocal(items);
 }
+
+// --- Load and render items when page loads ---
+loadLocal();
+renderItems();
+
